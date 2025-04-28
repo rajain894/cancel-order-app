@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cancel Order</title>
+</head>
+<body>
+    <h1>Cancel Your Order</h1>
+    <form action="/submit-cancellation" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="orderId" id="orderId">
+        <label>Reason for Cancellation:</label><br/>
+        <textarea name="reason" required></textarea><br/><br/>
+        <label>Upload an image (optional):</label><br/>
+        <input type="file" name="cancelImage"><br/><br/>
+        <button type="submit">Submit Cancellation</button>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('orderId').value = urlParams.get('orderId');
+    </script>
+</body>
+</html>
